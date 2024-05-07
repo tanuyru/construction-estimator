@@ -29,10 +29,10 @@ export const removeAreaFromScope =  async (
     const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === areaName);
 
 if (scopeArea){
-    console.log('STARTING REMOVED AREA FROM PROJECT HAS '+projScope?.length+" AREAS LEFT");
+    console.log('STARTING REMOVED AREA FROM PROJECT HAS '+projScope?.areas?.length+" AREAS LEFT");
 
     projScope.areas = projScope.areas.filter(area => area.name !== areaName);
-    console.log('SUscopeArea.areasCCESSFULLY REMOVED AREA FROM PROJECT HAS '+projScope.areas?.length+" AREAS LEFT");
+    console.log('SUscopeArea.areasCCESSFULLY REMOVED AREA FROM PROJECT HAS '+projScope?.areas?.length+" AREAS LEFT");
     await updateProjectEstimate(project);
     console.log('done updating server reload shoud keep changes?');
 } else{
