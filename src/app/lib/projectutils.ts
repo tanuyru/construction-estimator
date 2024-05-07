@@ -28,7 +28,7 @@ export const removeAreaFromScope =  async (
     const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s) => s.scopeName === scopeName);
     const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === areaName);
 
-if (scopeArea){
+if (scopeArea && projScope){
     console.log('STARTING REMOVED AREA FROM PROJECT HAS '+projScope?.areas?.length+" AREAS LEFT");
 
     projScope.areas = projScope.areas.filter(area => area.name !== areaName);
