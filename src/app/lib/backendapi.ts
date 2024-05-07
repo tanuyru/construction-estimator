@@ -91,7 +91,7 @@ export const fetchProjectEstimateById = async (id: any) => {
 }
 
 export const loadDefaultConfig = async () => {
-    const localConfig = store
+  
 }
 export const fetchDefaultConfig = async () => {
     console.log('fetching default config');

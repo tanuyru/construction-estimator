@@ -19,7 +19,7 @@ return (
           <tbody>{Object.keys(props.costItem.costPerType)
           .map((key, idx) =>(
                
-               <tr>
+               <tr key={key}>
                     <td>
                          {key}:
                     </td>

@@ -23,7 +23,7 @@ const CostProfitView = ({ costTreeItem }) => {
          <tbody>{Object.keys(costTreeItem.costPerType)
          .map((key, idx) =>(
               
-              <tr>
+              <tr key={key}>
                    <td>
                         {key}:
                    </td>
