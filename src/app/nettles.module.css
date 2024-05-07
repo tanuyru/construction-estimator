@@ -1,0 +1,25 @@
+
+ul.cardparent {
+  list-style-type: none;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  
+  li.cardchild {
+    /*height: 240px; */
+    background: darkgrey;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+  }
+  .flexdiv {
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap; 
+  
+  }
+  .cardCostPerSqFt {
+    font-size:xx-large;
+    color: green;
+  }

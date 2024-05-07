@@ -1,0 +1,1 @@
+npx openapi-typescript@5.4.1 http://localhost:59473/swagger/v1/swagger.json --output nettlesbackend.ts
