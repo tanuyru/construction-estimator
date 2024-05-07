@@ -11,8 +11,8 @@ import {addNewAreaToScope} from "@/app/lib/projectutils";
 export default function NewAreaCard(props) {
 
   async function newArea(){
-    const newAreaName = document.getElementById("newAreaInput").value;
-    const newAreaSize = parseFloat(document.getElementById("newAreaSizeSqFt").value);
+    const newAreaName = document.getElementById("newAreaInput")?.value;
+    const newAreaSize = parseFloat(document.getElementById("newAreaSizeSqFt")?.value);
 
     await addNewAreaToScope(props.proj, props.scope, newAreaName, newAreaSize);
   }

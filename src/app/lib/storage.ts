@@ -4,7 +4,7 @@ export const setCurrentConfig =  async (config: components["schemas"]["ProjectCo
     localStorage.setItem('currentConfig', JSON.stringify(config));
 }
 
-export const getCurrentConfig = async ():components["schemas"]["ProjectConfiguration"] => {
+export const getCurrentConfig = async (): Promise<components["schemas"]["ProjectConfiguration"]> => {
     /*const exist = localStorage.getItem('currentProject')?.toJson();
     if (exist){
         return exist;

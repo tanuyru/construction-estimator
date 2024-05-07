@@ -14,7 +14,7 @@ export default function AddProductCard(props) {
 
 
   async function addProduct(){
-    const productId = document.getElementById("newProductId").value;
+    const productId = document.getElementById("newProductId")?.value;
     const product = props.products.find(p => p.id == productId);
     props.area.appliedProducts.push(product);
 

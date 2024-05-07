@@ -11,7 +11,7 @@ import {removeProjectEstimateById} from "@/app/lib/backendapi"
 export default function ProjectCard(props) {
 
   async function removeProject(){
-    console.log('removing project with id: '+id);
+    console.log('removing project with id: ');
 
     await removeProjectEstimateById(props.proj.id);
   }

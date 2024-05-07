@@ -12,7 +12,7 @@ import {removeProjectEstimateById} from "@/app/lib/backendapi"
 export default function ProjectDetails(props) {
 
   async function removeProject(){
-    console.log('removing project with id: '+id);
+    console.log('removing project with id: '+props.proj.id);
 
     await removeProjectEstimateById(props.proj.id);
   }

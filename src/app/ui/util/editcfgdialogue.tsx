@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProjectConfigurationEditor from './projectconfigurationeditor.tsx';
+import ProjectConfigurationEditor from './projectconfigurationeditor';
 import Dialogue from './dialogue';
 import {applyConfiguration} from "@/app/lib/backendapi"
 export const EditCfgDialogue = ({config}) => {

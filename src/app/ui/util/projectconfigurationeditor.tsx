@@ -37,7 +37,7 @@ const ProjectConfigurationEditor = ({itemKeys, currentConfig}) => {
         const defEl = document.getElementById('cfgPricePerUnit');
         const hourEl = document.getElementById('cfgHourUnitPrice');
         const indirectEl = document.getElementById('cfgIndirectCostFactor');
-        if (!defEl){
+        if (!defEl || !hourEl || !indirectEl){
             return;
         }
         defEl.value = cfg.defaultPricePerUnit;
