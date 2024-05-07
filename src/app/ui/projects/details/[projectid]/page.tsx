@@ -37,7 +37,7 @@ export default async function DetailsHome({ params }: { params: { projectid: str
       <ul className={nettlesStyles.cardparent}>
      
      {resp.scopes?.map((scope, index) => (
-      <ScopeCard proj={resp} scope={scope} />
+      <ScopeCard key={scope.scopeName} proj={resp} scope={scope} />
      ))
      }
           <NewScopeCard proj={resp} />

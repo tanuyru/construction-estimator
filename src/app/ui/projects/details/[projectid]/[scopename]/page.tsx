@@ -31,7 +31,7 @@ return (
       <ul className={nettlesStyles.cardparent}>
      
      {projScope?.areas?.map((area, index) => (
-      <AreaCard proj={resp} scopeName={projScope?.scopeName} area={area} />
+      <AreaCard key={area.name} proj={resp} scopeName={projScope?.scopeName} area={area} />
      ))}
      <NewAreaCard proj={resp} scope={projScope} />
      

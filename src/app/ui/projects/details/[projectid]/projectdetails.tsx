@@ -26,7 +26,7 @@ const projectUrl:string = "/ui/projects/details/"+props.proj.id;
         </tr>
         </tbody>
       </table>
-    </div>>
+    </div>
  
 );
 }

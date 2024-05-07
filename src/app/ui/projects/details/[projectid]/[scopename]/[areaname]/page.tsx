@@ -35,7 +35,7 @@ return (
       <ul className={nettlesStyles.cardparent}>
      
      {scopeArea?.appliedProducts?.map((prod, index) => (
-      <ProductCard project={resp} areaName={scopeArea?.name} scopeName={projScope?.scopeName} product={prod} />
+      <ProductCard key={prod.id} project={resp} areaName={scopeArea?.name} scopeName={projScope?.scopeName} product={prod} />
      ))}
       </ul>
       <AddProductCard area={scopeArea} project={resp} products={products}/>

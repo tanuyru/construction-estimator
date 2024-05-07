@@ -32,7 +32,7 @@ export default function AddProductCard(props) {
     <td>
       <select id="newProductId">
       {props.products.map((prod, idx) =>(
-        <option value={prod.id}>{prod.name}</option>
+        <option key={prod.id} value={prod.id}>{prod.name}</option>
       )
       )}
       </select></td>

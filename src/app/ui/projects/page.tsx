@@ -15,7 +15,7 @@ export default async function ProjectsHome() {
       <ul className={nettleStyles.cardparent}>
       {resp.map((project: components["schemas"]["ProjectEstimate"], index) => (
  
-        <ProjectCard proj={project} />
+        <ProjectCard key={project.id} proj={project} />
 
       ))}
       </ul>
