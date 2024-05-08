@@ -22,7 +22,7 @@ export const removeAreaFromScope =  async (
     scopeName: string,
     areaName: string) => {
     console.log('deleting area: '+areaName);
-    const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s: { scopeName: string; }) => s.scopeName === scopeName);
+    const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s) => s.scopeName === scopeName);
     const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === areaName);
 
 if (scopeArea && projScope && projScope.areas){
