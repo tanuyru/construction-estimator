@@ -94,7 +94,7 @@ export const removeProductFromArea =  async (
     console.log('deleting area: '+areaName);
     const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s) => s.scopeName === scopeName);
     const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === areaName);
-    const item: components["schemas"]["Product"] | undefined = scopeArea?.appliedProducts.find((s) => s.name === productName);
+    const item: components["schemas"]["Product"] | undefined = scopeArea?.appliedProducts?.find((s) => s.name === productName);
 
 if (item && projScope && scopeArea && scopeArea.appliedProducts){
  
