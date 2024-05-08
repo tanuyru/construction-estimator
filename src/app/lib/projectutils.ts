@@ -5,14 +5,11 @@ import { updateProjectEstimate } from './backendapi';
 const baseUrl: string = 'http://localhost:59473';
 
 export const removeScopeFromProject =  async (project: components["schemas"]["ProjectEstimate"], scopeName: string) => {
-    console.log('deleting scopeName: '+scopeName);
 const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s) => s.scopeName === scopeName);
 
 if (project.scopes){
-    console.log('STARTING REMOVED SCOPE FROM PROJECT HAS '+project.scopes.length+" SCOPES LEFT");
 
     project.scopes = project.scopes.filter(scope => scope.scopeName !== scopeName);
-    console.log('SUCCESSFULLY REMOVED SCOPE FROM PROJECT HAS '+project.scopes.length+" SCOPES LEFT");
     await updateProjectEstimate(project);
     console.log('done updating server reload shoud keep changes?');
 } else{
@@ -25,18 +22,16 @@ export const removeAreaFromScope =  async (
     scopeName: string,
     areaName: string) => {
     console.log('deleting area: '+areaName);
-    const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s) => s.scopeName === scopeName);
+    const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s: { scopeName: string; }) => s.scopeName === scopeName);
     const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === areaName);
 
 if (scopeArea && projScope && projScope.areas){
-    console.log('STARTING REMOVED AREA FROM PROJECT HAS '+projScope?.areas?.length+" AREAS LEFT");
 
     projScope.areas = projScope.areas.filter(area => area.name !== areaName);
-    console.log('SUscopeArea.areasCCESSFULLY REMOVED AREA FROM PROJECT HAS '+projScope?.areas?.length+" AREAS LEFT");
     await updateProjectEstimate(project);
     console.log('done updating server reload shoud keep changes?');
 } else{
-    console.log('FAILED AT REMOVING AREA WITH NAME '+areaName+' from scope '+projScope?.areas?.scopeName);
+    console.log('FAILED AT REMOVING AREA WITH NAME '+areaName+' from scope '+projScope?.scopeName);
 }
 }
 
@@ -98,17 +93,15 @@ export const removeProductFromArea =  async (
 
     console.log('deleting area: '+areaName);
     const projScope: components["schemas"]["ProjectScope"] | undefined = project.scopes?.find((s) => s.scopeName === scopeName);
-    const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope.areas?.find((s) => s.name === areaName);
+    const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === areaName);
     const item: components["schemas"]["Product"] | undefined = scopeArea?.appliedProducts.find((s) => s.name === productName);
 
-if (item){
-    console.log('STARTING REMOVED ITEM FROM PROJECT HAS '+projScope.length+" AREAS LEFT");
-    console.log('SUscopeArea.areasCCESSFULLY REMOVED PRODUCT FROM PROJECT HAS '+scopeArea.appliedProducts.length+" AREAS LEFT");
-   
+if (item && projScope && scopeArea?.appliedProducts){
+ 
     scopeArea.appliedProducts = scopeArea.appliedProducts.filter(s => s.name !== productName);
     await updateProjectEstimate(project);
     console.log('done updating server reload shoud keep changes?');
 } else{
-    console.log('FAILED AT REMOVING AREA WITH NAME '+areaName+' from project:'+project+', scope: '+projScope+' '+productName);
+    console.log('FAILED AT REMOVING AREA WITH NAME '+areaName);
 }
 }
