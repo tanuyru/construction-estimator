@@ -96,7 +96,7 @@ export const removeProductFromArea =  async (
     const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === areaName);
     const item: components["schemas"]["Product"] | undefined = scopeArea?.appliedProducts.find((s) => s.name === productName);
 
-if (item && projScope && scopeArea?.appliedProducts){
+if (item && projScope && scopeArea && scopeArea.appliedProducts){
  
     scopeArea.appliedProducts = scopeArea.appliedProducts.filter(s => s.name !== productName);
     await updateProjectEstimate(project);
