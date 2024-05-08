@@ -11,7 +11,7 @@ import {addNewScopeToProject} from "@/app/lib/projectutils";
 export default function NewScopeCard(props) {
 
   async function newScope(){
-    const newScopeNameElement = document.getElementById("newScopeNameInput");
+    const newScopeNameElement = document.getElementById("newScopeNameInput") as HTMLInputElement;
     if (newScopeNameElement){
       console.log('found input element getting val');
       const scopeName = newScopeNameElement.value;

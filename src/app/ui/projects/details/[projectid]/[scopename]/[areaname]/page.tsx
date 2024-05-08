@@ -18,13 +18,9 @@ export default async function AreasHome({ params }: { params: { projectid: strin
 console.log('projectid: '+params.projectid+', scopename: '+decodedScope+', areaname: '+decodedArea);
 const resp: components["schemas"]["ProjectEstimate"] = await fetchProjectEstimateById(params.projectid);
 const products: Array<components["schemas"]["Product"]> = await fetchAllProducts();
-const projScope: components["schemas"]["ProjectScope"] | undefined = resp.scopes?.find((s) => s.scopeName === decodedScope);
+const projScope: components["schemas"]["ProjectScope"] | undefined = resp?.scopes?.find((s) => s.scopeName === decodedScope);
   const scopeArea: components["schemas"]["ProjectArea"] | undefined = projScope?.areas?.find((s) => s.name === decodedArea);
-  if (!scopeArea){
-    console.log(projScope?.areas.map((a, _) =>{
-      console.log('Couldnt find '+decodedArea+' ('+decodedArea.length+') among '+a.name+' ('+a.name.length+')');
-    }));
-  }
+ 
 
 console.log('projScope: '+projScope+' project: '+resp+', area: '+scopeArea);  
 return (

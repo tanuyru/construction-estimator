@@ -1,3 +1,4 @@
+/* tslint:disable */
 'use client'
 import BaseCard from "@/app/ui/util/basecard";
 
@@ -14,7 +15,7 @@ export default function AddProductCard(props) {
 
 
   async function addProduct(){
-    const productId = document.getElementById("newProductId")?.value;
+    const productId = (document.getElementById("newProductId") as HTMLInputElement)?.value;
     const product = props.products.find(p => p.id == productId);
     props.area.appliedProducts.push(product);
 

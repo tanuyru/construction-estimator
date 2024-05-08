@@ -34,9 +34,9 @@ const ProjectConfigurationEditor = ({itemKeys, currentConfig}) => {
         currentConfig.pricePerUnitPerCostItem[itemName] = price;
     }
     const reloadCfg = (cfg) => {
-        const defEl = document.getElementById('cfgPricePerUnit');
-        const hourEl = document.getElementById('cfgHourUnitPrice');
-        const indirectEl = document.getElementById('cfgIndirectCostFactor');
+        const defEl = document.getElementById('cfgPricePerUnit') as HTMLInputElement;
+        const hourEl = document.getElementById('cfgHourUnitPrice') as HTMLInputElement;
+        const indirectEl = document.getElementById('cfgIndirectCostFactor') as HTMLInputElement;
         if (!defEl || !hourEl || !indirectEl){
             return;
         }
@@ -46,9 +46,9 @@ const ProjectConfigurationEditor = ({itemKeys, currentConfig}) => {
         {cfg.pricePerUnitPerCostItem ? Object.entries(cfg.pricePerUnitPerCostItem).map(([key, value]) => 
             {
                 const id = "cfg"+key;
-                const el = document.getElementById(id);
+                const el = document.getElementById(id) as HTMLInputElement;
                 if (el){
-                    el.value = value;
+                    el.value = value as string;
                 }
 
             }
